@@ -11,8 +11,9 @@ class Node():
         self.area = 0.0
         self.p_corr = 0.0
         self.p_old = 0.0
+        self.area = 0.0
 
-    def calculate_coefficients(self,rho,Fw, Fe, Aw, Ae, dw, de,bc=False):
+    def calculate_coefficients(self,rho,Fw, Fe, Aw, Ae, dw, de):
         self.Fe = Fe
         self.Fw = Fw
         self.aE = rho * Ae *de

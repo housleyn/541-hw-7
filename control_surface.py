@@ -34,27 +34,27 @@ class ControlSurface:
         self.aE = De + max(-Fe, 0) 
         self.aW = Dw + max(Fw,0)
         self.aP = self.aE + self.aW + (Fe-Fw)  
-        self.b = (pe-pw)*.5*(Aw+Ae) 
+        self.b = (pw-pe)*.5*(Aw+Ae) 
         self.d = self.area / self.aP
     def calculate_x_coefficients_first(self, De, Fe, Dw, Fw,pe, pw, Aa):
         self.Aa = Aa
         self.Fe = Fe
         self.Fw = Fw
         A1 = self.area
-        self.aE = 0 
+        self.aE = De + max(-Fe, 0)
         self.aW = 0
         self.aP = self.aE + self.aW + Fw*(.5*(A1/Aa)**2) +Fe 
-        self.b = (pw-pe)*A1 + Fw *(A1/Aa)*self.u_old 
+        self.b = (10-pe)*A1 + Fw *(A1/Aa)*self.u_old 
         self.d = A1 / self.aP
         self.ua = A1/Aa * self.u_old
     def calculate_x_coefficients_last(self, De, Fe, Dw, Fw, pe, pw):
         self.Fe = Fe
         self.Fw = Fw
         A = self.area
-        self.aE = De + max(-Fe, 0) 
+        self.aE = 0
         self.aW = Dw + max(Fw,0)
         self.aP = self.aE + self.aW + (Fe-Fw)  
-        self.b = (pw-pe)*(A) 
+        self.b = (pw-0)*(A) 
         self.d = self.area / self.aP
 
     def calculate_area(self, domain):

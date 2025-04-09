@@ -10,8 +10,8 @@ class Boundary():
         last_node = self.mesh.nodes[-1]
         self.left_boundary = left_boundary
         self.right_boundary = right_boundary
-        first_node.p = left_boundary
-        last_node.p = right_boundary
+        first_node.p_old = left_boundary
+        last_node.p_old = right_boundary
 
         first_node.aP = 1
         last_node.aP = 1
